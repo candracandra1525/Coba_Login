@@ -5,15 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_margin="16dp"
+    android:background="@color/white"
+    android:padding="16dp"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/tv_selamatdatang"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Selamat Datang"
-        android:textAllCaps="true"
+        android:text="SELAMAT DATANG"
         android:gravity="center_horizontal"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -33,7 +33,7 @@
         android:textColor="@color/black"
         />
 
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/btn_logout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -46,8 +46,6 @@
         app:cornerRadius="10dp"
         android:textColor="@color/black"
         android:backgroundTint="#EEF9E6"
-
-
         />
 
 </LinearLayout>
