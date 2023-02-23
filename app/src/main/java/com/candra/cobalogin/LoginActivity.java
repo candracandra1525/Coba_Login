@@ -38,9 +38,7 @@ public class LoginActivity extends AppCompatActivity
                 if(username.equals("Candra") && password.equals("candra"))
                 {
                     kl.setPref(LoginActivity.this, KEY_PREF_USERNAME, username);
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    intent.putExtra("varName", username);
-                    startActivity(intent);
+                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     finish();
                 }
                 else if(!username.equals("Candra") && !password.equals("candra"))
