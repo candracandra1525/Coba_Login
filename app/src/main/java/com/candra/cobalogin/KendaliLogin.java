@@ -26,9 +26,20 @@ public class KendaliLogin
 
     public Boolean isLogin (Context context, String key)
     {
-        sp = PreferenceManager.getDefaultSharedPreferences(context);
-        String tampung = sp.getString(key, null);
-        if(tampung != null)
+        // Cara I
+//        sp = PreferenceManager.getDefaultSharedPreferences(context);
+//        String tampung = sp.getString(key, null);
+//        if(tampung != null)
+//        {
+//            return true;
+//        }
+//        else
+//        {
+//            return false;
+//        }
+
+        // Cara II
+        if(this.getPref(context, key) != null)
         {
             return true;
         }

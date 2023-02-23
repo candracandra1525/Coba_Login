@@ -16,6 +16,7 @@ public class LoginActivity extends AppCompatActivity
     private Button btnLogin;
     private String username, password;
     KendaliLogin kl = new KendaliLogin();
+    public static String KEY_PREF_USERNAME = "GtPJAx45lMjkuICbExYElQ==username";
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -28,24 +29,32 @@ public class LoginActivity extends AppCompatActivity
         etUsername = findViewById(R.id.et_username);
         etPassword = findViewById(R.id.et_password);
         btnLogin = findViewById(R.id.btn_login);
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                username = etUsername.getText().toString();
+                password = etPassword.getText().toString();
+
+                if(username.equals("Candra") && password.equals("candra"))
+                {
+                    kl.setPref(LoginActivity.this, KEY_PREF_USERNAME, username);
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    intent.putExtra("varName", username);
+                    startActivity(intent);
+                    finish();
+                }
+                else if(!username.equals("Candra") && !password.equals("candra"))
+                {
+                    Toast.makeText(LoginActivity.this, "Username atau Password salah !", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(LoginActivity.this, "Proses Login Gagal, Harap Ulangi", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
 
 
     }
 
-    public void prosesLogin(View view)
-    {
-        username = etUsername.getText().toString();
-        password = etPassword.getText().toString();
-
-        if(username.equals("Candra") && password.equals("candra"))
-        {
-            kl.setPref(LoginActivity.this, "user", username);
-            startActivity(new Intent(LoginActivity.this, MainActivity.class));
-            finish();
-        }
-        else {
-            Toast.makeText(this, "Proses Login Gagal, Harap Ulangi", Toast.LENGTH_SHORT).show();
-        }
-
-    }
 }
