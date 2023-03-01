@@ -21,13 +21,10 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_login);
         if(kl.isLogin(MainActivity.this, KEY_PREF_USERNAME))
         {
             setContentView(R.layout.activity_main);
             tvSesi = findViewById(R.id.tv_sesi);
-//            Intent x = getIntent();
-//            tvSesi.setText(x.getStringExtra("varName"));
 
             ambilSesi = kl.getPref(MainActivity.this, KEY_PREF_USERNAME);
             tvSesi.setText(ambilSesi);
@@ -40,8 +37,6 @@ public class MainActivity extends AppCompatActivity
                     finish();
                 }
             });
-
-
         }
         else
         {
