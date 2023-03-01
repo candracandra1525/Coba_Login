@@ -29,21 +29,47 @@ public class LoginActivity extends AppCompatActivity
         etUsername = findViewById(R.id.et_username);
         etPassword = findViewById(R.id.et_password);
         btnLogin = findViewById(R.id.btn_login);
-        btnLogin.setOnClickListener(new View.OnClickListener() {
+        btnLogin.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 username = etUsername.getText().toString();
                 password = etPassword.getText().toString();
 
-                if(username.equals("Candra") && password.equals("candra"))
+                if(username.trim().equals("candra") && password.trim().equals("bebaslah"))
                 {
                     kl.setPref(LoginActivity.this, KEY_PREF_USERNAME, username);
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     finish();
                 }
-                else if(!username.equals("Candra") && !password.equals("candra"))
+                else if(!username.trim().equals("candra") || !password.trim().equals("bebaslah"))
                 {
-                    Toast.makeText(LoginActivity.this, "Username atau Password salah !", Toast.LENGTH_SHORT).show();
+                    if(!username.trim().equals("candra"))
+                    {
+                        etUsername.setError("Username Salah !");
+                        etUsername.setFocusable(true);
+                        etUsername.setText("");
+                    }
+                    else if(!password.trim().equals("bebaslah"))
+                    {
+                        etPassword.setError("Password Salah !");
+                        etPassword.setFocusable(true);
+                        etPassword.setText("");
+                    }
+                }
+                else if(username.trim().equals(null) || password.trim().equals(null))
+                {
+                    if(username.trim().equals(null))
+                    {
+                        etUsername.setError("Username Tidak Boleh Kosong !");
+                        etUsername.setFocusable(true);
+                    }
+                    else if(password.trim().equals(null))
+                    {
+                        etPassword.setError("Password Tidak Boleh Kosong !");
+                        etPassword.setFocusable(true);
+                    }
                 }
                 else {
                     Toast.makeText(LoginActivity.this, "Proses Login Gagal, Harap Ulangi", Toast.LENGTH_SHORT).show();

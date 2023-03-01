@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity
         }
         else
         {
-//            setContentView(R.layout.activity_login);
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
             finish();
         }
