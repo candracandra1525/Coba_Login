@@ -34,6 +34,18 @@
         android:textColor="@color/black"
         />
 
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="yyyyyyyyyy"
+        android:fontFamily="@font/quicksand_semibold"
+        android:gravity="center_horizontal"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="20dp"
+        />
+
     <Button
         android:id="@+id/btn_logout"
         android:layout_width="match_parent"

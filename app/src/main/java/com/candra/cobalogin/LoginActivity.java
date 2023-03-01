@@ -17,6 +17,7 @@ public class LoginActivity extends AppCompatActivity
     private String username, password;
     KendaliLogin kl = new KendaliLogin();
     public static String KEY_PREF_USERNAME = "GtPJAx45lMjkuICbExYElQ==username";
+    public static String KEY_PREF_NAME = "GtPJAx45lMjkuICbExYElQ==name";
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -24,7 +25,6 @@ public class LoginActivity extends AppCompatActivity
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
 
         etUsername = findViewById(R.id.et_username);
         etPassword = findViewById(R.id.et_password);
@@ -40,6 +40,7 @@ public class LoginActivity extends AppCompatActivity
                 if(username.trim().equals("candra") && password.trim().equals("bebaslah"))
                 {
                     kl.setPref(LoginActivity.this, KEY_PREF_USERNAME, username);
+                    kl.setPref(LoginActivity.this, KEY_PREF_NAME, "Candra");
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     finish();
                 }
@@ -58,27 +59,17 @@ public class LoginActivity extends AppCompatActivity
                         etPassword.setText("");
                     }
                 }
-                else if(username.trim().equals(null) || password.trim().equals(null))
+                else if(username.trim().equals("andi") && password.trim().equals("andi"))
                 {
-                    if(username.trim().equals(null))
-                    {
-                        etUsername.setError("Username Tidak Boleh Kosong !");
-                        etUsername.setFocusable(true);
-                    }
-                    else if(password.trim().equals(null))
-                    {
-                        etPassword.setError("Password Tidak Boleh Kosong !");
-                        etPassword.setFocusable(true);
-                    }
+                    kl.setPref(LoginActivity.this, KEY_PREF_USERNAME, username);
+                    kl.setPref(LoginActivity.this, KEY_PREF_NAME, "Andi");
+                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    finish();
                 }
                 else {
                     Toast.makeText(LoginActivity.this, "Proses Login Gagal, Harap Ulangi", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
-
-
     }
-
 }
